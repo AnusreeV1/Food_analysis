@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Healthy everyday!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <style>
+      body,
+      html {
+        height: 100%;
+      }
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Amatic SC", sans-serif;
+      }
+      .menu {
+        display: none;
+      }
+      .bgimg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("/static/bg.jpg");
+        min-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top w3-hide-small" style="background-color: black">
+      <div
+        class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off"
+        id="myNavbar"
+      >
+        <a href="#" class="w3-bar-item w3-button">HOME</a>
+        <a href="#menu" class="w3-bar-item w3-button">MENU</a>
+        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="#myMap" class="w3-bar-item w3-button">CONTACT</a>
+      </div>
+    </div>
+
+    <!-- Header with image -->
+    <header class="bgimg w3-display-container" id="home">
+      <div class="w3-display-bottomleft w3-padding">
+        <span class="w3-tag w3-xlarge">Open from 10am to 12pm</span>
+      </div>
+      <div class="w3-display-middle w3-center">
+        <span class="w3-text-white w3-hide-small" style="font-size: 140px"
+          >HEALTHY <br />EVERYDAY!</span
+        >
+        <span
+          class="w3-text-white w3-hide-large w3-hide-medium"
+          style="font-size: 60px"
+          ><b>HEALTHY <br />EVERYDAY!</b></span
+        >
+        <p>
+          <a href="#menu" class="w3-button w3-xxlarge w3-black"
+            >Let me see the menu</a
+          >
+        </p>
+      </div>
+    </header>
+
+    <!-- Menu Container -->
+    <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+      <div class="w3-content">
+        <h1 class="w3-center w3-jumbo" style="margin-bottom: 64px">THE MENU</h1>
+        <div class="w3-row w3-center w3-border w3-border-dark-grey">
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">
+              Starter
+            </div>
+          </a>
+          <a
+            href="javascript:void(0)"
+            onclick="openMenu(event, 'Maincourse');"
+            id="myLink"
+          >
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">
+              Main course
+            </div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Desserts');">
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">
+              Desserts
+            </div>
+          </a>
+        </div>
+
+        <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
+          <h1>
+            <b>Garlic bread</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$9.50</span>
+          </h1>
+          <p class="w3-text-grey">Grilled ciabatta, garlic butter, onions</p>
+          <div id="inline">
+            <img src="/static/0.bread.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="0liked" />
+              <label for="0liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/0.bread.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>Today's Soup</b>
+            <span class="w3-tag w3-grey w3-round">Seasonal</span
+            ><span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span>
+          </h1>
+          <p class="w3-text-grey">Ask the waiter</p>
+          <div id="inline">
+            <img src="/static/9.soup.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="9liked" />
+              <label for="9liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/9.soup.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>Salad</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$8.50</span>
+          </h1>
+          <p class="w3-text-grey">Fresh veggies!</p>
+          <div id="inline">
+            <img src="/static/10.veg.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="10liked" />
+              <label for="10liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/10.veg.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="Maincourse" class="w3-container menu w3-padding-32 w3-white">
+          <h1>
+            <b>Pasta Arabiata</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$16.50</span>
+          </h1>
+          <p class="w3-text-grey">
+            Spicy homemade tomato sauce made with red chili pepper flakes,
+            fragrant garlic and fresh basil.
+          </p>
+          <div id="inline">
+            <img src="/static/6.pasta.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="6liked" />
+              <label for="6liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/6.pasta.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+
+          <!-- <div onload="modal()"></div> -->
+
+          <!-- <div id="popup1" class="overlay">
+            <div class="popup">
+              ><br />
+              <h2>Advantages</h2>
+              <a class="close" href="#">&times;</a>
+              <div class="content">{{adv}}</div>
+              <h2>Disadvantages</h2>
+              <div class="content" style="color: red">{{dis}}</div>
+            </div>
+          </div> -->
+          <hr />
+
+          <h1>
+            <b>French fries</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$15.50</span>
+          </h1>
+          <p class="w3-text-grey">
+            Deep-fried potatoes including ketchup, mayonnaise
+          </p>
+          <div id="inline">
+            <img src="/static/4.friedfood.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="4liked" />
+              <label for="4liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/4.friedfood.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>BBQ chicken</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$17.00</span>
+          </h1>
+          <p class="w3-text-grey">Sweet, Smoky Taste!</p>
+          <div id="inline">
+            <img src="/static/5.meat.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="5liked" />
+              <label for="5liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/5.meat.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>Steamed rice</b> <span class="w3-tag w3-red w3-round">Hot!</span
+            ><span class="w3-right w3-tag w3-dark-grey w3-round">$20.00</span>
+          </h1>
+          <p class="w3-text-grey"></p>
+          <div id="inline">
+            <img src="/static/7.rice.jpg" style="height: 260px; width: 300px" />
+            <div class="likebutton">
+              <input type="checkbox" id="7liked" />
+              <label for="7liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/7.rice.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>Egg</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$12.50</span>
+          </h1>
+          <p class="w3-text-grey">Freshly made eggs!</p>
+          <div id="inline">
+            <img src="/static/3.egg.jpg" style="height: 260px; width: 300px" />
+            <div class="likebutton">
+              <input type="checkbox" id="3liked" />
+              <label for="3liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/3.egg.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>Fish tacos</b> <span class="w3-tag w3-grey w3-round">New</span
+            ><span class="w3-right w3-tag w3-dark-grey w3-round">$21.50</span>
+          </h1>
+          <p class="w3-text-grey">
+            Pan-seared fish tacos with citrusy mayo and a simple cabbage slaw!
+          </p>
+          <div id="inline">
+            <img src="/static/8.sea.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="8liked" />
+              <label for="8liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/8.sea.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="Desserts" class="w3-container menu w3-padding-32 w3-white">
+          <h1>
+            <b>Lassi</b> <span class="w3-tag w3-grey w3-round">Popular</span>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$13.50</span>
+          </h1>
+          <p class="w3-text-grey">
+            Reamy, frothy yogurt-based drink, blended with water and various
+            fruits or seasonings.
+          </p>
+          <div id="inline">
+            <img src="/static/1.dairy.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="1liked" />
+              <label for="1liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/1.dairy.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+          <hr />
+
+          <h1>
+            <b>Treacle tart</b>
+            <span class="w3-right w3-tag w3-dark-grey w3-round">$14.50</span>
+          </h1>
+          <p class="w3-text-grey">
+            Sweet pastry consisting of a buttery shortcrust base and a gooey
+            filling
+          </p>
+          <div id="inline">
+            <img src="/static/2.dessert.jpg" />
+            <div class="likebutton">
+              <input type="checkbox" id="2liked" />
+              <label for="2liked">
+                <span
+                  onclick="redirectIt(this)"
+                  href="{{url_for('food_analyse', id='/static/2.dessert.jpg')}}"
+                >
+                </span
+              ></label>
+            </div>
+
+            <button class="button-75" role="button">
+              <span class="text">Add to cart</span>
+            </button>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+
+    <!-- About Container -->
+    <div
+      class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge"
+      id="about"
+    >
+      <div class="w3-content">
+        <h1 class="w3-center w3-jumbo" style="margin-bottom: 64px">About</h1>
+        <p>
+          The Restaurant was founded in blabla by Mr. Italiano in lorem ipsum
+          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat.
+        </p>
+        <p></p>
+        <p>We are proud of our interiors.</p>
+
+        <h1><b>Opening Hours</b></h1>
+
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <p>Mon & Tue CLOSED</p>
+            <p>Wednesday 10.00 - 24.00</p>
+            <p>Thursday 10:00 - 24:00</p>
+          </div>
+          <div class="w3-col s6">
+            <p>Friday 10:00 - 12:00</p>
+            <p>Saturday 10:00 - 23:00</p>
+            <p>Sunday Closed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image of location/map -->
+    <img
+      src="/w3images/map.jpg"
+      class="w3-image w3-greyscale"
+      style="width: 100%"
+      id="myMap"
+    />
+
+    <!-- Contact -->
+    <div
+      class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge"
+    >
+      <div class="w3-content">
+        <h1 class="w3-center w3-jumbo" style="margin-bottom: 64px">Contact</h1>
+        <p>
+          Find us at some address at some place or call us at 05050515-122330
+        </p>
+        <p>
+          <span class="w3-tag">FYI!</span> We offer full-service catering for
+          any event, large or small. We understand your needs and we will cater
+          the food to satisfy the biggerst criteria of them all, both look and
+          taste.
+        </p>
+        <p class="w3-xxlarge">
+          <strong>Reserve</strong> a table, ask for today's special or just send
+          us a message:
+        </p>
+        <form action="/action_page.php" target="_blank">
+          <p>
+            <input
+              class="w3-input w3-padding-16 w3-border"
+              type="text"
+              placeholder="Name"
+              required
+              name="Name"
+            />
+          </p>
+          <p>
+            <input
+              class="w3-input w3-padding-16 w3-border"
+              type="number"
+              placeholder="How many people"
+              required
+              name="People"
+            />
+          </p>
+          <p>
+            <input
+              class="w3-input w3-padding-16 w3-border"
+              type="datetime-local"
+              placeholder="Date and time"
+              required
+              name="date"
+              value="2020-11-16T20:00"
+            />
+          </p>
+          <p>
+            <input
+              class="w3-input w3-padding-16 w3-border"
+              type="text"
+              placeholder="Message \ Special requirements"
+              required
+              name="Message"
+            />
+          </p>
+          <p>
+            <button class="w3-button w3-light-grey w3-block" type="submit">
+              SEND MESSAGE
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Tabbed Menu
+      function openMenu(evt, menuName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("menu");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(menuName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-red";
+      }
+      document.getElementById("myLink").click();
+
+      function redirectIt(obj) {
+        var goToLink = obj.getAttribute("href");
+        window.location.href = goToLink;
+        //location.href = "#popup1";
+      }
+
+      // function modal() {
+      //   console.log("hennwconrpiv");
+      // }
+
+      // function CustomAlert() {
+      //   this.alert = function (message, title) {
+      //     document.body.innerHTML =
+      //       document.body.innerHTML +
+      //       '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+
+      //     let dialogoverlay = document.getElementById("dialogoverlay");
+      //     let dialogbox = document.getElementById("dialogbox");
+
+      //     let winH = window.innerHeight;
+      //     dialogoverlay.style.height = winH + "px";
+
+      //     dialogbox.style.top = "50%";
+
+      //     dialogoverlay.style.display = "block";
+      //     dialogbox.style.display = "block";
+
+      //     document.getElementById("dialogboxhead").style.display = "block";
+
+      //     if (typeof title === "undefined") {
+      //       document.getElementById("dialogboxhead").style.display = "none";
+      //     } else {
+      //       document.getElementById("dialogboxhead").innerHTML =
+      //         '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' +
+      //         title;
+      //     }
+      //     document.getElementById("dialogboxbody").innerHTML = message;
+      //     document.getElementById("dialogboxfoot").innerHTML =
+      //       '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
+      //   };
+
+      //   this.ok = function () {
+      //     document.getElementById("dialogbox").style.display = "none";
+      //     document.getElementById("dialogoverlay").style.display = "none";
+      //   };
+      // }
+
+      // let customAlert = new CustomAlert();
+    </script>
+  </body>
+</html>

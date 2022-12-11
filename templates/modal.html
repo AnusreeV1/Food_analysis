@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Healthy everyday!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+      }
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Amatic SC", sans-serif;
+      }
+      .menu {
+        display: none;
+      }
+      .bgimg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("/static/bg.jpg");
+        min-height: 100%;
+      }
+    </style>
+  </head>
+  <body class="bgimg">
+    <div class="center">
+      <button class="trigger">Are you health conscious?</button>
+      <br /><br /><br />
+      <a href="/redirect"
+        ><button class="trigger1">Go back to home page</button></a
+      >
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <h2>{{food}}</h2>
+        <h2>Advantages</h2>
+        <!-- <a class="close" href="#">&times;</a> -->
+        <div class="content">
+          {%for value in adv%}
+          <li>{{value}}</li>
+          {%endfor%}
+        </div>
+        <br />
+        <h2>Disadvantages</h2>
+        <div class="content" style="color: red">
+          {%for value in dis%}
+          <li>{{value}}</li>
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+    <!-- <div id="popup1" class="overlay">
+      <div class="popup">
+        ><br />
+        <h2>Advantages</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">{{adv}}</div>
+        <h2>Disadvantages</h2>
+        <div class="content" style="color: red">{{dis}}</div>
+      </div>
+    </div> -->
+    <script>
+      var modal = document.querySelector(".modal");
+      var trigger = document.querySelector(".trigger");
+      var closeButton = document.querySelector(".close-button");
+
+      function toggleModal() {
+        modal.classList.toggle("show-modal");
+      }
+
+      function windowOnClick(event) {
+        if (event.target === modal) {
+          toggleModal();
+        }
+      }
+
+      trigger.addEventListener("click", toggleModal);
+      closeButton.addEventListener("click", toggleModal);
+      window.addEventListener("click", windowOnClick);
+    </script>
+  </body>
+</html>
