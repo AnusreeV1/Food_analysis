@@ -1,26 +1,25 @@
-def disease_pred(id):
-      adv_dict = {0:["Contains Fiber","Has a Prebiotic Effect","Low in Fat"],
-                  1:["Source of nutrients like calcium, vitamin D, potassium, and protein","These are all essential to good bone health"],
-                  2:["Lowers your blood pressure","Inspires You To Be Active"],
-                  3:["Contains vitamins, protein, calcium","Helps maintain your eyesight"],
-                  4:["Minimal loss of food quality as hot fat seals the food surface"],
-                  5:["Good source of protein, vitamins and several other growth factors which are essential for the cell growth and immunity",],
-                  6:["Sustained Energy: Carbohydrates like pasta provide glucose, the crucial fuel for your brain and muscles","Low Sodium and Cholesterol Free: If you're watching your cholesterol levels, pasta is perfect for you, being very low in sodium and cholesterol free"],
-                  7:["Natural Anti-Inflammatory and Gluten Free","Improves Nervous System Health","Good Source of Energy"],
-                  8:["Low in saturated fats, high in protein, and packed full of important nutrients including omega-3 fatty acids, vitamin A, and B vitamins"],
-                  9:["Helps Lose Weight","Good For Digestion","Vitamins and Minerals Stay Intact"],
-                  10:["Great source of vitamins and minerals","Lots of fiber","Low-calorie and low-fat"]
-                  }
-      
-      dis_dict = {0:["Celiac disease (Over consumption of gluten)","Allergic reaction (Moldy bread)","Respiratory issues (Moldy bread)"],
-                  1:["High in saturated fats(Risk for coronary heart disease",],
-                  2:["Diabetes(Increase in insulin levels)","Excess weight gain and obesity"],
-                  3:["High consumption of egg lead to heart disease, Diabetes, etc due to higher cholesterol and saturated fat",],
-                  4:["Fried foods are typically high in trans fats which are associated with an increased risk of many diseases, including heart disease, cancer, diabetes and obesity"],
-                  5:["Heart disease","Cancer","Diabetes"],
-                  6:["Pasta is high in carbs, which can be bad for you when consumed in large amounts.","It also contains gluten, a type of protein that causes issues for those who are gluten-sensitive"],
-                  7:["The rice plant accumulates more arsenic which is linked to an increased risk of heart disease and some types of cancer"],
-                  8:["Seafood sometimes may contain high mercury content","Unknown parasites get attached to seafood"],
-                  9:["High in sodium - High sodium diets are associated with health risks such as high blood pressure"],
-                  10:["Diarrhea, reflux and bloating are all potential side effects of eating too much fruit","High blood sugar is another side effect of fruit consumption"]
-                  }
+adv_dict = {0:["Contains Fiber","Has a Prebiotic Effect","Low in Fat"],
+            1:["Source of nutrients like calcium, vitamin D, potassium, and protein","These are all essential to good bone health"],
+            2:["Lowers your blood pressure","Inspires You To Be Active"],
+            3:["Contains vitamins, protein, calcium","Helps maintain your eyesight"],
+            4:["Minimal loss of food quality as hot fat seals the food surface"],
+            5:["Good source of protein, vitamins and several other growth factors which are essential for the cell growth and immunity",],
+            6:["Sustained Energy: Carbohydrates like pasta provide glucose, the crucial fuel for your brain and muscles","Low Sodium and Cholesterol Free: If you're watching your cholesterol levels, pasta is perfect for you, being very low in sodium and cholesterol free"],
+            7:["Natural Anti-Inflammatory and Gluten Free","Improves Nervous System Health","Good Source of Energy"],
+            8:["Low in saturated fats, high in protein, and packed full of important nutrients including omega-3 fatty acids, vitamin A, and B vitamins"],
+            9:["Helps Lose Weight","Good For Digestion","Vitamins and Minerals Stay Intact"],
+            10:["Great source of vitamins and minerals","Lots of fiber","Low-calorie and low-fat"]
+            }
+
+dis_dict = {0:["Celiac disease (Over consumption of gluten)","Allergic reaction (Moldy bread)","Respiratory issues (Moldy bread)"],
+            1:["High in saturated fats(Risk for coronary heart disease",],
+            2:["Diabetes(Increase in insulin levels)","Excess weight gain and obesity"],
+            3:["High consumption of egg lead to heart disease, Diabetes, etc due to higher cholesterol and saturated fat",],
+            4:["Fried foods are typically high in trans fats which are associated with an increased risk of many diseases, including heart disease, cancer, diabetes and obesity"],
+            5:["Heart disease","Cancer","Diabetes"],
+            6:["Pasta is high in carbs, which can be bad for you when consumed in large amounts.","It also contains gluten, a type of protein that causes issues for those who are gluten-sensitive"],
+            7:["The rice plant accumulates more arsenic which is linked to an increased risk of heart disease and some types of cancer"],
+            8:["Seafood sometimes may contain high mercury content","Unknown parasites get attached to seafood"],
+            9:["High in sodium - High sodium diets are associated with health risks such as high blood pressure"],
+            10:["Diarrhea, reflux and bloating are all potential side effects of eating too much fruit","High blood sugar is another side effect of fruit consumption"]
+            }
