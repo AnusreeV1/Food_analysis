@@ -115,7 +115,7 @@ def predictions(id):
 @app.route('/food_analyse/<path:id>')
 def food_analyse(id):
     print("heyy")
-    model_saved = tensorflow.keras.models.load_model("C:/Users/Anusree/Documents/Sem/Sem 7/4.SNA/Project/2/Food_analysis/inception_food_rec_50epochs.h5")
+    model_saved = tensorflow.keras.models.load_model("C:/Users/Anusree/Documents/Sem/Sem 7/4.SNA/Project/2/Food_analysis/SNA_Food_Analysis/inception_food_rec_50epochs.h5")
     target_dict = {0:"Bread",1:"Dairy product",2:"Dessert",3:"Egg",4:"Fried food",
                     5:"Meat",6:"Noodles/Pasta",7:"Rice",8:"Seafood",9:"Soup",10:"Veggies/Fruits"}
 
